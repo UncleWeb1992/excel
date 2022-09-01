@@ -2,7 +2,6 @@
 @import "mixins";
 
 .db {
-
   &__header {
     position: fixed;
     left: 0;
@@ -14,7 +13,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    box-shadow: 0 2px 5px 2px rgba(60, 64, 67, .15);
+    box-shadow: 0 2px 5px 2px rgba(60, 64, 67, 0.15);
     z-index: 1000;
   }
 
@@ -37,7 +36,7 @@
     color: #000;
     text-align: center;
 
-    transition: color .2s linear, border .2s linear;
+    transition: color 0.2s linear, border 0.2s linear;
 
     &:hover {
       cursor: pointer;
@@ -50,8 +49,6 @@
     max-width: 1000px;
     margin: 0 auto;
   }
-
-
 
   &__table {
     padding: 1rem;
@@ -68,7 +65,7 @@
 
       & tbody {
         & tr {
-          transition: background-color .2s linear, border .2s linear;
+          transition: background-color 0.2s linear, border 0.2s linear;
 
           &:hover {
             background-color: #e6f4ea;
