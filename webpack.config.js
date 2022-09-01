@@ -1,5 +1,5 @@
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -8,7 +8,8 @@ module.exports = (env, argv) => {
   const isProd = argv.mode === 'production';
   const isDev = !isProd;
   const filename = (ext) =>
-      isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`
+    isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`;
+
   const plugins = () => {
     const base = [
       new htmlWebpackPlugin({
@@ -16,29 +17,27 @@ module.exports = (env, argv) => {
       }),
       new CopyPlugin({
         patterns: [
-          {from: path.resolve(__dirname, 'src', 'favicon.png'), to: path.resolve(__dirname, 'dist')},
+          {
+            from: path.resolve(__dirname, 'src', 'favicon.png'),
+            to: path.resolve(__dirname, 'dist'),
+          },
         ],
       }),
       new MiniCssExtractPlugin({
         filename: filename('css'),
       }),
-    ]
+    ];
 
     if (isDev) {
-      base.push(new ESLintPlugin())
+      base.push(new ESLintPlugin());
     }
 
-    return base
-  }
+    return base;
+  };
   return {
     context: path.resolve(__dirname, 'src'),
     entry: {
-
-      main: [
-        'core-js/stable',
-        'regenerator-runtime/runtime',
-        './index.js',
-      ],
+      main: ['core-js/stable', 'regenerator-runtime/runtime', './index.js'],
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -63,11 +62,7 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.s[ac]ss$/i,
-          use: [
-            MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader',
-          ],
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
         {
           test: /\.m?js$/,
@@ -81,5 +76,5 @@ module.exports = (env, argv) => {
         },
       ],
     },
-  }
-}
+  };
+};
