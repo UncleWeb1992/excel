@@ -3,19 +3,26 @@ const CharCodes = {
   Z: 90,
 }
 
-function createCell() {
-  return '<div class="cell"></div>'
+function createCell(_, index) {
+  return `<div data-id="${index}" class="cell" contenteditable="true"></div>`
 }
 
-function createCol(el) {
-  return `<div class="column">${el}</div>`
+function createCol(el, index) {
+  return `
+    <div id="${index}" class="column" data-type="resizable">
+      ${el}
+      <div class="column-resize" data-resize="column"></div>
+    </div>`
 }
 
 function createRow(content, index) {
   return `
-    <div class="row">
-        <div class="row-info">${index ? index : ''}</div>
-        <div class="row-data">${content}</div>
+    <div class="row" data-type="resizable">
+      <div class="row-info">
+        ${index ? index : ''}
+        ${index ? '<div class="row-resize" data-resize="row"></div>' : ''}
+      </div>
+      <div class="row-data">${content}</div>
     </div>
   `;
 }
