@@ -25,6 +25,7 @@
     align-items: center;
     border: 1px solid $border-color;
     border-top: none;
+    user-select: none;
     background-color: #f8f9fa;
 
     & .row-resize {
@@ -62,6 +63,7 @@
     border: 1px solid $border-color;
     border-top: 0;
     border-left: 0;
+    user-select: none;
 
     &-resize {
       position: absolute;
@@ -82,7 +84,7 @@
 
   .cell {
     width: $cell-width;
-    min-width: 40px;
+    min-width: 24px;
     padding: 5px;
     height: 100%;
     border: 1px solid #e2e3e3;

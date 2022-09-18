@@ -18,6 +18,7 @@ module.exports = {
     'singlequote': 0,
     "linebreak-style": 0,
     'operator-linebreak': 0,
-    'max-len': 0
+    'max-len': 0,
+    'spaced-comment': 0,
   },
 };
