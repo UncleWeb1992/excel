@@ -1,10 +1,10 @@
 import {$} from '../../core/dom';
 
-export function resizeHandler($root, target) {
-  const $resizer = $(target);
+export function resizeHandler($root, e) {
+  const $resizer = $(e.target);
   const $parent = $resizer.closest('[data-type="resizable"]');
   const $table = $resizer.closest('.excel__table');
-  const typeResize = target.dataset.resize;
+  const typeResize = e.target.dataset.resize;
   const parentId = $parent.$el.id;
   const coords = $parent.getCoords();
   $resizer.css({opacity: 1});
